@@ -10,7 +10,7 @@ var requestFn = function (url, cb) {
                 console.error(error);
                 cb(error);
             } else {
-                cb(null, body);
+                cb(null, JSON.parse(body));
             }
         });
 }
