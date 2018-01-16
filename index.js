@@ -18,6 +18,6 @@ telegram.router
     .when(new TextCommand('/help'), new StartController())
     .when(new RegexpCommand(/(top[0-9][0-9]?[0-9]?)/i), new FinderController())
     .when(new TextCommand('/all'), new FinderController())
-    .when(new TextCommand('/globalInfo'), new GlobalController())
+    .when(new TextCommand('/global'), new GlobalController())
     .otherwise(new OtherwiseController())
 
