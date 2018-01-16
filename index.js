@@ -9,12 +9,15 @@ const telegram = new Telegram.Telegram(Parameters.token, {
 })
 
 const StartController = require("./start").StartController;
+const FinderController = require("./finder").FinderController;
+const GlobalController = require("./global").GlobalController;
 const OtherwiseController = require("./otherwise").OtherwiseController;
-// const PostsController = require("./posts").PostsController;
-// const PagesController = require("./pages").PagesController;
-// const AuthorController = require("./author").AuthorController;
-//
+
 telegram.router
     .when(new TextCommand('/start'), new StartController())
+    .when(new TextCommand('/help'), new StartController())
+    .when(new RegexpCommand(/(top[0-9][0-9]?[0-9]?)/i), new FinderController())
+    .when(new TextCommand('/all'), new FinderController())
+    .when(new TextCommand('/globalInfo'), new GlobalController())
     .otherwise(new OtherwiseController())
 

@@ -6,10 +6,9 @@ class OtherwiseController extends TelegramBaseController {
      * @param {Scope} scope
      */
     handle(scope) {
-        scope.sendMessage('Non fare il furbo, il comando non esiste!')
+        scope.sendMessage('Are you kidding me? This command not exists.')
     }
 }
 
 
-// module.export{
-module.exports.OtherwiseController = OtherwiseController;
+module.exports.OtherwiseController  = OtherwiseController ;
