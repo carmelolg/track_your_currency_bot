@@ -2,7 +2,7 @@ const Telegram = require('telegram-node-bot')
 const TelegramBaseController = Telegram.TelegramBaseController
 const HttpService = require('../shared/httpService')
 const Credentials = require('../credentials')
-const GlobalObjectMapper = require('mapper')
+const GlobalObjectMapper = require('./mapper')
 class GlobalController extends TelegramBaseController {
 
     /**
@@ -11,7 +11,7 @@ class GlobalController extends TelegramBaseController {
     handle(scope) {
 
         HttpService.request(Credentials.globalEndpointUrl, function(err, data){
-            
+
            var botObject = GlobalObjectMapper.mapFromRestObject(data);
             var message = '';
             message = message.concat('Market cap. ($ USD): ' + botObject.totalMarketCapUSD + '\n');
