@@ -16,7 +16,7 @@ const StartController = require("./start").StartController;
 const FinderController = require("./finder").FinderController;
 const SingleCurrencyController = require("./single_currency").SingleCurrencyController;
 const GlobalController = require("./global").GlobalController;
-const OtherwiseController = require("./otherwise").OtherwiseController;
+const DonateController = require("./donate").DonateController;
 
 telegram.router
     .when(new TextCommand('/start'), new StartController())
@@ -25,5 +25,6 @@ telegram.router
     // .when(new RegexpCommand(/(?!top)([a-z]+)/gi), new SingleCurrencyController())
     .when(new TextCommand('/all'), new FinderController())
     .when(new TextCommand('/global'), new GlobalController())
+    .when(new TextCommand('/donate'), new DonateController())
     .otherwise(new SingleCurrencyController())
 
