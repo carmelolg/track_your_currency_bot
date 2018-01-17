@@ -14,12 +14,12 @@ class GlobalController extends TelegramBaseController {
 
             var botObject = GlobalObjectMapper.mapFromRestObject(data);
             var message = '';
-            message = message.concat('Market cap. ($ USD): ' + botObject.totalMarketCapUSD + '\n');
-            message = message.concat('Last 24h volume ($ USD): ' + botObject.total24hVolumeUSD + '\n');
-            message = message.concat('Market cap. (€ EUR): ' + botObject.totalMarketCapEUR + '\n');
-            message = message.concat('Last 24h volume (€ EUR): ' + botObject.total24hVolumeEUR + '\n');
-            message = message.concat('Bitcoin percentage: ' + botObject.bitcoinPercentage + '% \n');
-            message = message.concat('Total active currencies ' + botObject.activeCurrencies + '\n');
+            message = message.concat('Market cap. ($ USD): ' + botObject.totalMarketCapUSD + ' $\n');
+            message = message.concat('Last 24h volume ($ USD): ' + botObject.total24hVolumeUSD + ' $\n\n');
+            message = message.concat('Market cap. (€ EUR): ' + botObject.totalMarketCapEUR + ' €\n');
+            message = message.concat('Last 24h volume (€ EUR): ' + botObject.total24hVolumeEUR + ' €\n\n');
+            message = message.concat('Bitcoin percentage: ' + botObject.bitcoinPercentage + ' % \n');
+            message = message.concat('Total active currencies: ' + botObject.activeCurrencies + '\n');
 
             scope.sendMessage(message, {'parse_mode': 'Markdown'});
         });
