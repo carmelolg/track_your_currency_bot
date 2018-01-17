@@ -5,7 +5,11 @@ const Telegram = require('telegram-node-bot')
 const TextCommand = Telegram.TextCommand
 const RegexpCommand = Telegram.RegexpCommand
 const telegram = new Telegram.Telegram(Parameters.token, {
-    workers: 1
+    workers: 1,
+    webAdmin: {
+        port: 7779,
+        host: 'localhost'
+    }
 })
 
 const StartController = require("./start").StartController;
