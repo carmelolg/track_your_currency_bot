@@ -11,8 +11,6 @@ class FinderController extends TelegramBaseController {
     handle(scope) {
 
 
-        console.log('entro qui full')
-
         var limit = 0;
         if (scope.message.text != '/all') {
             limit = scope.message.text.match(/[0-9][0-9]?[0-9]?/i)[0];
