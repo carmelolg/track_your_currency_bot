@@ -10,10 +10,9 @@ class GlobalController extends TelegramBaseController {
      */
     handle(scope) {
 
-        HttpService.request(Credentials.globalEndpointUrl, function (err, data) {
+        HttpService.request(Credentials.globalEndpointUrl + '/?convert=EUR', function (err, data) {
 
             var botObject = GlobalObjectMapper.mapFromRestObject(data);
-            console.log(botObject)
             var message = '';
             message = message.concat('Market cap. ($ USD): ' + botObject.totalMarketCapUSD + '\n');
             message = message.concat('Last 24h volume ($ USD): ' + botObject.total24hVolumeUSD + '\n');
