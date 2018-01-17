@@ -3,9 +3,6 @@ const CurrencyUtils = require('../shared/currencyUtils')
 var mapFromRestObject = function (restObject){
     var botObject = {}
 
-    var temp = JSON.stringify(restObject).replace('\'', '"')
-    restObject = JSON.parse(temp);
-
     botObject.id = restObject.id;
     botObject.name = restObject.name;
     botObject.symbol = restObject.symbol;
