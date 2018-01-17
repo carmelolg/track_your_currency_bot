@@ -1,4 +1,4 @@
-const CurrencyUtils = require('../shared/currencyUtils')
+const CurrencyUtils = require('../shared/utils')
 
 var mapFromRestObject = function (restObject){
     var botObject = {}

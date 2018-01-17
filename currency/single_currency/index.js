@@ -1,8 +1,8 @@
 const Telegram = require('telegram-node-bot')
 const TelegramBaseController = Telegram.TelegramBaseController
-const CurrencyMapper = require('../finder/mapper')
-const HttpService = require('../shared/httpService')
-const Credentials = require('../credentials')
+const CurrencyMapper = require('../mapper')
+const HttpService = require('../../shared/httpService')
+const Credentials = require('../../credentials')
 
 class SingleCurrencyController extends TelegramBaseController {
 
@@ -13,7 +13,6 @@ class SingleCurrencyController extends TelegramBaseController {
 
         var currency = scope.message.text.match(/[a-z]+/gi).join('-');
 
-        console.log(currency)
         HttpService.request(Credentials.currencyEndpointUrl + '/' + currency + '/?convert=EUR', function (err, data) {
 
             var message = '';
