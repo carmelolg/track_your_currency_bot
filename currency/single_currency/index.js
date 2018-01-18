@@ -25,9 +25,9 @@ class SingleCurrencyController extends TelegramBaseController {
                 message = message.concat('Name: ' + botObject.name + '\n\n');
                 message = message.concat('Current value: \n' + botObject.priceUSD + ' $ USD \n' + botObject.priceEUR + ' € EUR \n' + botObject.priceBTC + ' BTC \n\n');
                 message = message.concat('Market cap. ($ USD): ' + botObject.marketCapUSD + ' $\n');
-                message = message.concat('Last 24h volume ($ USD): ' + botObject.Volume24hUSD + ' $\n');
+                message = message.concat('Last 24h volume ($ USD): ' + botObject.volume24hUSD + ' $\n');
                 message = message.concat('Market cap. (€ EUR): ' + botObject.marketCapEUR + ' €\n');
-                message = message.concat('Last 24h volume (€ EUR): ' + botObject.Volume24hEUR + ' €\n\n');
+                message = message.concat('Last 24h volume (€ EUR): ' + botObject.volume24hEUR + ' €\n\n');
                 message = message.concat('Change 1h: ' + botObject.change1h + ' % \n');
                 message = message.concat('Change 24h: ' + botObject.change24h + ' % \n');
                 message = message.concat('Change 7d: ' + botObject.change7d + ' % \n');
