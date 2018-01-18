@@ -11,7 +11,7 @@ class SingleCurrencyController extends TelegramBaseController {
      */
     handle(scope) {
 
-        var currency = scope.message.text.match(/[a-z]+/gi).join('-');
+        var currency = scope.message.text.match(/[a-z0-9]+/gi).join('-');
 
         HttpService.request(Credentials.currencyEndpointUrl + '/' + currency + '/?convert=EUR', function (err, data) {
 

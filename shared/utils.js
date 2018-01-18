@@ -8,4 +8,14 @@ var convertToCurrency = function (value, floating){
     }
 }
 
+function topComparator(a,b, fieldToCompare){
+    return b[fieldToCompare] - a[fieldToCompare];
+}
+
+function worstComparator(a,b, fieldToCompare){
+   return a[fieldToCompare] - b[fieldToCompare];
+}
+
 module.exports.convertToCurrency = convertToCurrency;
+module.exports.topComparator = topComparator;
+module.exports.worstComparator = worstComparator;

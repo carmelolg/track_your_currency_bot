@@ -23,6 +23,7 @@ telegram.router
     .when(new TextCommand('/start'), new StartController())
     .when(new TextCommand('/help'), new StartController())
     .when(new RegexpCommand(/top[0-9][0-9]?[0-9]?/i), new RankController())
+    .when(new RegexpCommand(/worst[0-9][0-9]?[0-9]?/i), new RankController())
     // .when(new TextCommand('/all'), new FinderController()) // TODO too many cryptocurrency
     .when(new RegexpCommand(/rank[0-9][0-9]?[0-9]?/i), new FinderController())
     .when(new TextCommand('/global'), new GlobalController())

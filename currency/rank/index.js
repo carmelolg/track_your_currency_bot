@@ -4,6 +4,7 @@ const CurrencyMapper = require('../mapper')
 const HttpService = require('../../shared/httpService')
 const Credentials = require('../../credentials')
 const Constant = require('../../constants')
+const Utils = require('../../shared/utils')
 class RankController extends TelegramBaseController {
 
     /**
@@ -11,24 +12,20 @@ class RankController extends TelegramBaseController {
      */
     handle(scope) {
 
-        var limit = 0;
+        var fnComparator = scope.message.text.match(/top/gi) ? Utils.topComparator : Utils.worstComparator;
+
         var rankLength = scope.message.text.match(/[0-9][0-9]?[0-9]?/i)[0]
         var rank = rankLength ? rankLength : Constant.DEFAULT_ITEMS_LENGTH
 
-        HttpService.request(Credentials.currencyEndpointUrl + '/?limit=' + limit, function (err, data) {
+        HttpService.request(Credentials.currencyEndpointUrl + '/?limit=0', function (err, data) {
 
-            data = data.map(CurrencyMapper.mapFromRestObject).filter(function(value){
+            data = data.map(CurrencyMapper.mapFromRestObject).filter(function (value) {
                 return value.change7d;
             });
 
             data = data.sort(function (a, b) {
-                if(a.change7d < b.change7d){
-                    return -1;
-                }else if(a.change7d > b.change7d){
-                    return 1;
-                }
-                return 0;
-            }).slice(0,rank);
+                return fnComparator(a,b, 'change7d');
+            }).slice(0, rank);
 
             var message = '';
             data.forEach(function (item, index) {
