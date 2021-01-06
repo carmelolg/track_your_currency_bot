@@ -1,22 +1,23 @@
 var request = require('request')
+const Credentials = require('../credentials')
 
 module.exports = {}
 
 // Private methods
 var requestFn = function (url, cb) {
-    request(url,
+    request({
+            uri: url,
+            headers: {
+                'X-CMC_PRO_API_KEY': Credentials.apiToken
+            }
+        },
         function (error, response, body) {
             if (error) {
                 console.error(error);
                 cb(error);
             } else {
                 body = JSON.parse(body);
-                // if (Array.isArray(body)) {
-                    // body.map(JSON.parse)
-                    cb(null, body);
-                // } else {
-                //     cb(null, body);
-                // }
+                cb(null, body);
             }
         });
 }
