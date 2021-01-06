@@ -15,6 +15,8 @@ var map = function (response) {
     data.symbol = data.symbol;
     data.rank = data.cmc_rank;
 
+    console.log(data);
+
     quote = data.quote['EUR'];
     data.priceEUR = CurrencyUtils.convertToCurrency(quote.price, 2);
     data.marketCapEUR = CurrencyUtils.convertToCurrency(quote.market_cap);
