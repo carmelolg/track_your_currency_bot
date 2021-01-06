@@ -18,6 +18,7 @@ class SingleCurrencyController extends TelegramBaseController {
         HttpService.request(process.env.ENDPOINT_URL + '/quotes/latest?symbol=' + currency + '&convert=EUR', function (err, data) {
 
             var message = '';
+            console.log(data);
             if (data.status.error_code) {
                 scope.sendMessage('Currency not found.');
             } else {
