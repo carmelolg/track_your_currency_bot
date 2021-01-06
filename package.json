@@ -12,7 +12,8 @@
   "dependencies": {
     "express": "^4.16.2",
     "request": "^2.83.0",
-    "telegram-node-bot": "4.0.5"
+    "telegram-node-bot": "4.0.5",
+    "dotenv": "^8.2.0"
   },
   "license": {
     "type": "GNU 3.0",

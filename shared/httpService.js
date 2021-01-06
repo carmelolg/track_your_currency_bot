@@ -1,5 +1,7 @@
 var request = require('request')
-const Credentials = require('../credentials')
+
+const dotenv = require('dotenv');
+dotenv.config();
 
 module.exports = {}
 
@@ -8,7 +10,7 @@ var requestFn = function (url, cb) {
     request({
             uri: url,
             headers: {
-                'X-CMC_PRO_API_KEY': Credentials.apiToken
+                'X-CMC_PRO_API_KEY': process.env.API_TOKEN
             }
         },
         function (error, response, body) {
