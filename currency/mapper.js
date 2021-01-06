@@ -13,10 +13,10 @@ var map = function (response) {
     data.id = data.id;
     data.name = data.name;
     data.symbol = data.symbol;
-    data.rank = data.cmc_rank;
+    data.rank = data.cmc_rank ? data.cmc_rank : 'NA';
 
-    quote = data.quote['EUR'];
-    data.priceEUR = CurrencyUtils.convertToCurrency(quote.price, 2);
+    quote = data.quote ? data.quote['EUR'] : {};
+    data.priceEUR = CurrencyUtils.convertToCurrency(quote.price, 5);
     data.marketCapEUR = CurrencyUtils.convertToCurrency(quote.market_cap);
     data.volume24hEUR = CurrencyUtils.convertToCurrency(quote.volume_24h);
     data.change1h = quote.percent_change_1h;
