@@ -10,7 +10,7 @@
     "url": "https://github.com/carmelolg/track_your_currency_bot.git"
   },
   "dependencies": {
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "request": "^2.83.0",
     "telegram-node-bot": "4.0.5",
     "dotenv": "^8.2.0"
